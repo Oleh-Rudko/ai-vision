@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Vision Today — Oleh Rudko</title>
+<style>
+:root{
+  --bg:#070d0b;
+  --surface:#0e1a15;
+  --border:rgba(120,205,172,.18);
+  --border-strong:rgba(120,215,178,.34);
+  --text:#e8f1ec;
+  --muted:#94a69d;
+  --faint:#5f7269;
+  --em:#27e0a6;
+  --em-deep:#0c6f57;
+  --glow:rgba(39,224,166,.35);
+  --grad:linear-gradient(120deg,#0c6f57 0%,#27e0a6 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(900px 560px at 78% 0%,rgba(18,180,135,.20),transparent 62%),
+    radial-gradient(760px 520px at 8% 16%,rgba(12,111,87,.22),transparent 58%),
+    linear-gradient(180deg,#070d0b 0%,#060b09 100%);
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  padding:28px;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.035;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{
+  width:min(940px,100%);
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--em);
+  border:1px solid var(--border-strong);
+  border-radius:999px;
+  background:rgba(39,224,166,.06);
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--em);
+  box-shadow:0 0 0 0 var(--glow);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(39,224,166,.6)}
+  70%{box-shadow:0 0 0 12px rgba(39,224,166,0)}
+  100%{box-shadow:0 0 0 0 rgba(39,224,166,0)}
+}
+h1{
+  font-size:clamp(42px,8vw,86px);
+  line-height:1.02;
+  letter-spacing:-.035em;
+  max-width:11ch;
+  margin-bottom:22px;
+}
+.grad{
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.lead{
+  max-width:650px;
+  color:#aebcb4;
+  font-size:clamp(18px,2.4vw,22px);
+  line-height:1.5;
+  margin-bottom:38px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.card{
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:24px;
+  background:rgba(14,26,21,.82);
+  border:1px solid var(--border);
+  border-radius:18px;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease,background .35s ease;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:var(--border-strong);
+  background:rgba(17,33,27,.9);
+  box-shadow:0 22px 54px rgba(0,0,0,.36),0 0 24px rgba(39,224,166,.10);
+}
+.lang{
+  color:var(--em);
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.card h2{
+  font-size:clamp(25px,3.2vw,34px);
+  line-height:1.1;
+  margin:18px 0 10px;
+}
+.card p{
+  color:var(--muted);
+  line-height:1.55;
+  font-size:15.5px;
+}
+.go{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#fff;
+  font-weight:750;
+  margin-top:24px;
+}
+.go::after{
+  content:"";
+  width:18px;
+  height:18px;
+  background:currentColor;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M13.5 5.5 20 12l-6.5 6.5-1.4-1.4 4.1-4.1H4v-2h12.2l-4.1-4.1z'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition:transform .25s ease;
+}
+.card:hover .go::after{transform:translateX(4px)}
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--faint);
+  font-size:13px;
+  margin-top:28px;
+}
+@media(max-width:720px){
+  body{padding:22px}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:190px}
+  .footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow"><span class="dot"></span>Oleh Rudko · AI Vision Today</div>
+  <h1>Choose your <span class="grad">language</span></h1>
+  <p class="lead">A short personal guide about AI as a tool, mindset, context, verification, practice, and moving toward real results.</p>
+
+  <section class="cards" aria-label="Language selection">
+    <a class="card" href="ai-ua.html">
+      <div>
+        <div class="lang">Українська</div>
+        <h2>Моє бачення ШІ сьогодні</h2>
+        <p>Українська версія з основною ідеєю, рівнями, практичною системою, перевіркою і прикладами з контекстом.</p>
+      </div>
+      <span class="go">Відкрити</span>
+    </a>
+
+    <a class="card" href="au-en.html">
+      <div>
+        <div class="lang">English</div>
+        <h2>My AI Vision Today</h2>
+        <p>English version with adapted terminology, the same structure, and the same animated visual style.</p>
+      </div>
+      <span class="go">Open</span>
+    </a>
+  </section>
+
+  <div class="footer">
+    <span>Personal vision · 2026</span>
+    <span>AI as a tool for people who think, check, and move forward.</span>
+  </div>
+</main>
+</body>
+</html>
