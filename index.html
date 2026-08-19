@@ -1,9 +1,34 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Vision Today — Oleh Rudko</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070d0b'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%2327e0a6' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%2327e0a6'/%3E%3C/svg%3E">
+<meta name="description" content="Personal guide by Oleh Rudko about using AI as a tool: mindset, context, verification, practice, and moving toward real results. Available in Ukrainian, English, and Russian.">
+<meta name="author" content="Oleh Rudko">
+<meta name="theme-color" content="#070d0b">
+<link rel="canonical" href="https://oleh-rudko.github.io/ai-vision/">
+<link rel="alternate" hreflang="uk" href="https://oleh-rudko.github.io/ai-vision/ai-ua.html">
+<link rel="alternate" hreflang="en" href="https://oleh-rudko.github.io/ai-vision/ai-en.html">
+<link rel="alternate" hreflang="ru" href="https://oleh-rudko.github.io/ai-vision/ai-ru.html">
+<link rel="alternate" hreflang="x-default" href="https://oleh-rudko.github.io/ai-vision/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Vision Today">
+<meta property="og:title" content="AI Vision Today — Oleh Rudko">
+<meta property="og:description" content="Personal guide by Oleh Rudko about using AI as a tool: mindset, context, verification, practice, and moving toward real results.">
+<meta property="og:url" content="https://oleh-rudko.github.io/ai-vision/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:image" content="https://oleh-rudko.github.io/ai-vision/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI Vision Today — a personal guide by Oleh Rudko">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Vision Today — Oleh Rudko">
+<meta name="twitter:description" content="Personal guide by Oleh Rudko about using AI as a tool: mindset, context, verification, practice, and moving toward real results.">
+<meta name="twitter:image" content="https://oleh-rudko.github.io/ai-vision/og-en.png">
 <style>
 :root{
   --bg:#070d0b;
@@ -42,7 +67,7 @@ body::before{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .wrap{
-  width:min(940px,100%);
+  width:min(1080px,100%);
 }
 .eyebrow{
   display:inline-flex;
@@ -94,7 +119,7 @@ h1{
 }
 .cards{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:16px;
 }
 .card{
@@ -124,9 +149,10 @@ h1{
   text-transform:uppercase;
 }
 .card h2{
-  font-size:clamp(25px,3.2vw,34px);
-  line-height:1.1;
+  font-size:clamp(22px,2.4vw,28px);
+  line-height:1.15;
   margin:18px 0 10px;
+  letter-spacing:-.015em;
 }
 .card p{
   color:var(--muted);
@@ -158,10 +184,13 @@ h1{
   font-size:13px;
   margin-top:28px;
 }
-@media(max-width:720px){
+@media(max-width:940px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
   body{padding:22px}
   .cards{grid-template-columns:1fr}
-  .card{min-height:190px}
+  .card{min-height:auto}
   .footer{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
@@ -176,7 +205,7 @@ h1{
   <p class="lead">A short personal guide about AI as a tool, mindset, context, verification, practice, and moving toward real results.</p>
 
   <section class="cards" aria-label="Language selection">
-    <a class="card" href="ai-ua.html">
+    <a class="card" href="ai-ua.html" hreflang="uk" lang="uk">
       <div>
         <div class="lang">Українська</div>
         <h2>Моє бачення ШІ сьогодні</h2>
@@ -185,13 +214,22 @@ h1{
       <span class="go">Відкрити</span>
     </a>
 
-    <a class="card" href="au-en.html">
+    <a class="card" href="ai-en.html" hreflang="en">
       <div>
         <div class="lang">English</div>
         <h2>My AI Vision Today</h2>
         <p>English version with adapted terminology, the same structure, and the same animated visual style.</p>
       </div>
       <span class="go">Open</span>
+    </a>
+
+    <a class="card" href="ai-ru.html" hreflang="ru" lang="ru">
+      <div>
+        <div class="lang">Русский</div>
+        <h2>Моё видение ИИ сегодня</h2>
+        <p>Русская версия с той же структурой, уровнями развития, практической системой и примерами с контекстом.</p>
+      </div>
+      <span class="go">Открыть</span>
     </a>
   </section>
 
